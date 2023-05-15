@@ -90,7 +90,7 @@ export class App {
     data: { name: 'teddy' },
   });
 
-  // should be encapsulated
+  // should be encapsulated and simplify
   openWithTemplateRef() {
     const ref = <any>(
       this.onOpen3(this.sideEffect, Example3Component).componentInstance
