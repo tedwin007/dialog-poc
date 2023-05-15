@@ -31,7 +31,7 @@ import { DlhModalContainerComponent } from './dlh-modal-container/dlh-modal-cont
 
     <ng-template #temRef>
       <app-dlh-modal-container>
-        <p mat-dialog-content>Template content without header</p>
+        <p mat-dialog-content>Template content without header {{ modalInput | json }}</p>
         <div mat-dialog-actions>
           <button mat-button mat-dialog-close>Cancel</button>
           <button mat-button [mat-dialog-close]={} cdkFocusInitial>O.K</button>
@@ -90,10 +90,13 @@ export class App {
     data: { name: 'teddy' },
   });
 
+  // should be encapsulated
   openWithTemplateRef() {
-    (<any>(
+    const ref = <any>(
       this.onOpen3(this.sideEffect, Example3Component).componentInstance
-    )).temRef = this.temRef;
+    );
+    ref.temRef = this.temRef;
+    ref.context = this;
   }
 }
 

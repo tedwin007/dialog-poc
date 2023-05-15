@@ -6,7 +6,7 @@ import { DlhModalContainerComponent } from './../../src/dlh-modal-container/dlh-
 
 @Component({
   selector: 'app-example3',
-  template: `<ng-container *ngTemplateOutlet="temRef"></ng-container>`,
+  template: `<ng-container *ngTemplateOutlet="temRef;context: context" ></ng-container>`,
   imports: [CommonModule, DlhModalContainerComponent, MatDialogModule],
   standalone: true,
 })
@@ -14,4 +14,5 @@ export class Example3Component extends DLHModal<{ name: string }> {
   // there is no need for this component
   // POC only
   @Input('temRef') temRef!: TemplateRef<any>;
+  @Input('context') context: any;
 }
