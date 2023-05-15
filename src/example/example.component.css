@@ -1,0 +1,12 @@
+:host {
+  height: 100%;
+}
+
+h1 {
+  font-size: 1.5rem !important;
+  color: red;
+}
+
+p {
+  font-style: italic;
+}

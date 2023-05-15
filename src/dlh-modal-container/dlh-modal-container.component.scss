@@ -1,0 +1,22 @@
+:host {
+  display: grid;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  grid-template-rows: min-content auto min-content;
+
+  .dlh-modal-header {
+    display: grid;
+    align-items: center;
+    height: inherit;
+    background-color: red;
+  }
+  .dlh-modal-content {
+    background-color: green;
+  }
+  .dlh-modal-footer {
+    position: relative;
+    height: 100%;
+    background-color: blue;
+  }
+}
