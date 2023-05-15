@@ -43,7 +43,17 @@ import { DlhModalContainerComponent } from './dlh-modal-container/dlh-modal-cont
 })
 export class App {
   @ViewChild('temRef') temRef!: TemplateRef<any>;
-  modalInput!: object;
+  dialogConfig: MatDialogConfig<any> = {
+    maxWidth: '80vw',
+    minHeight: '50vh',
+    enterAnimationDuration: '300ms',
+    exitAnimationDuration: '400ms',
+    disableClose: false,
+    direction: 'rtl',
+    data: { name: 'original' },
+  };
+
+  modalInput = this.dialogConfig.data;
   response!: object;
 
   sideEffect = {
@@ -56,15 +66,6 @@ export class App {
     error: () => console.error('Error show'),
     complete: () => console.log('complate'),
   };
-  dialogConfig: MatDialogConfig<any> = {
-    maxWidth: '80vw',
-    minHeight: '50vh',
-    enterAnimationDuration: '300ms',
-    exitAnimationDuration: '400ms',
-    disableClose: false,
-    direction: 'rtl',
-    data: { name: 'original' },
-  };
 
   // Example for using component factory - define the modal's ui and logic (inner component, shared logic, "static" logic)
   // in one place, adding it side effect (action - changing logic)
@@ -73,7 +74,7 @@ export class App {
   // Example for using component factory - define the modal ui in a component, and the logic (actions) in another
   // good for reusability
   onOpen2 = openModal(
-    { ...this.dialogConfig, direction: 'ltr' },
+    { ...this.dialogConfig, direction: 'ltr', minHeight: '80px' },
     Example2Component
   );
 
