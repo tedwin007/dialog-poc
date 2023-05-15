@@ -10,7 +10,7 @@ import { DlhModalContainerComponent } from './../../src/dlh-modal-container/dlh-
   imports: [CommonModule, DlhModalContainerComponent, MatDialogModule],
   standalone: true,
 })
-export class Example3Component extends DLHModal<{ name: 'example2' }> {
+export class Example3Component extends DLHModal<{ name: string }> {
   // there is no need for this component
   // POC only
   @Input('temRef') temRef!: TemplateRef<any>;

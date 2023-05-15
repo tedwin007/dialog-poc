@@ -18,7 +18,7 @@ import { DLHModal } from './../../src/dlh-modal.class';
   }`,
   ],
 })
-export class Example2Component extends DLHModal<{ name: 'example2' }> {
+export class Example2Component extends DLHModal<{ name: string }> {
   data!: { name: string };
 
   close(data?: { name: string } | undefined): void {
