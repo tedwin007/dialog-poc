@@ -26,6 +26,6 @@ export class Example2Component extends DLHModal<{ name: string }> {
   }
 
   ngOnInit() {
-    setTimeout(() => this.close({ name: 'Closed after 1s' }), 1000);
+    setTimeout(() => this.close({ name: 'Shlomi' }), 1000);
   }
 }

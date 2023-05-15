@@ -31,7 +31,7 @@ import { DlhModalContainerComponent } from './dlh-modal-container/dlh-modal-cont
 
     <ng-template #temRef>
       <app-dlh-modal-container>
-        <p mat-dialog-content>Template content without header {{ modalInput | json }}</p>
+        <p mat-dialog-content>Template content without header {{ modal3Config.data | json }}</p>
         <div mat-dialog-actions>
           <button mat-button mat-dialog-close>Cancel</button>
           <button mat-button [mat-dialog-close]={} cdkFocusInitial>O.K</button>
@@ -80,7 +80,7 @@ export class App {
 
   // Example for using ng-template (define the modals ui and logic in the same place you call it)
   // good for special use cases (like revision dialog)
-  onOpen3 = openModal({
+  modal3Config = {
     minWidth: '25vw',
     disableClose: true,
     hasBackdrop: true,
@@ -88,14 +88,24 @@ export class App {
     exitAnimationDuration: '700ms',
     position: { left: '10%' },
     minHeight: '40vh',
-    data: { name: 'teddy' },
-  });
+    data: { name: 'Liran' },
+  };
+  onOpen3 = openModal(this.modal3Config);
 
   // should be encapsulated and simplify
   openWithTemplateRef() {
-    const ref = <any>(
-      this.onOpen3(this.sideEffect, Example3Component).componentInstance
-    );
+    const ref = <any>this.onOpen3(
+      {
+        ...this.sideEffect,
+        next: (data) => {
+          console.log('next -> original data', this.modal3Config.data);
+          console.log('next -> returned data', data);
+          this.modalInput = this.modal3Config.data;
+          this.response = data;
+        },
+      },
+      Example3Component
+    ).componentInstance;
     ref.temRef = this.temRef;
     ref.context = this;
   }

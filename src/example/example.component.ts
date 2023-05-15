@@ -29,6 +29,6 @@ export class ExampleComponent extends DLHModal<{ name: string }> {
 
   ngOnInit() {
     this.data = this.getDataSnapshot();
-    this.data.name = 'changed';
+    this.data.name = 'Tidhar';
   }
 }
